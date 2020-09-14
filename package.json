@@ -1,16 +1,23 @@
 {
-  "name": "@nuxtjs/insights",
+  "name": "nuxt-insights",
   "version": "0.1.0",
   "description": "PageSpeed insights google for Nuxt",
   "main": "lib/module.js",
+  "contributors": [
+    "Joffrey Berrier <joffrey.berrier@gmail.com>"
+  ],
   "directories": {
     "lib": "lib"
   },
   "files": [
-    "lib"
+    "lib",
+    "example"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "repository": {
     "type": "git",
@@ -23,7 +30,11 @@
   },
   "homepage": "https://github.com/joffreyBerrier/insights-module#readme",
   "dependencies": {
-    "@nuxtjs/axios": "^5.12.2",
+    "axios": "^0.20.0",
     "puppeteer": "^5.3.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "eslint": "^7.9.0"
   }
 }
