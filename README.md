@@ -21,28 +21,50 @@ Scan PageSpeed Insights of your website, send a slack notification with the resu
 2. Add `nuxt-insights` to the `buildModules` section of `nuxt.config.js`
 3. Configure it:
 
-Key                 | Type       | Description
---------------------|------------|-------------------------
-  webhookUrl        | String     | The slack webhook url
-  url               | String     | The url of the site you want to scan
+Key                | Type       | Default   | Description
+-------------------|------------|-----------|------------------------
+  webhookUrl       | String     | Mandatory | The slack webhook url
+  url              | String     | Mandatory | The url of the site you want to scan
+  fields           | Object     |           |
+  -notation        | Boolean    | true      | Score
+  -fieldData       | Boolean    | true      | * **fieldData**
+  -laboratoryData  | Boolean    | true      | * **laboratoryData**
+  -opportunities   | Boolean    | true      | * **opportunities**
 
+**fieldData**:
+First Contentful Paint, First Input Delay (FID), Largest Contentful Paint (LCP), Cumulative Layout Shift (CLS)
+
+**laboratoryData**:
+First Contentful Paint, Time to Interactive, Speed Index, Total Blocking Time, Largest Contentful Paint, Cumulative Layout Shift
+
+**opportunities**:
+These suggestions can help your page load faster. However, they do not have a direct impact on the performance score.
+
+
+## Example
 
 ```js
 {
   buildModules: [
     ['nuxt-insights', {
       webhookUrl: 'https://hooks.slack.com/services/******/*****/******',
-      url: 'https://www.google.com'
+      url: 'https://www.google.com',
+      // optional
+      fields: {
+        notation: true,
+        fieldData: true,
+        laboratoryData: true,
+        opportunities: true
+      }
     }]
   ]
 }
 ```
 
-## Development
+<!-- ## Development
 
 1. Clone this repository
-2. Install dependencies using `yarn install` or `npm install`
-3. Start development server using `npm run dev`
+2. Install dependencies using `yarn install` or `npm install` -->
 
 ## License
 
